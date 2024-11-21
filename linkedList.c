@@ -96,11 +96,16 @@ struct Node *insertNewNode(struct Node *head, int targetValue, int newValue, boo
     {
         head = head->next;
 
-        if (head->next == NULL)
+        if (head->number == targetValue)
         {
-            printf("Next is NULL\n");
             break;
         }
+        else if (head->number != targetValue && head->next == NULL)
+        {
+            printf("No such value in list!\n");
+            return head;
+        }
+        
         
     }
 
@@ -157,7 +162,7 @@ struct Node *deleteNode(struct Node *head, int targetValue, bool isAtTheBeginnin
     return head;
 }
 
-void freeList(struct Node *head) {  
+void freeList(struct Node *head) {  //Frees list from memory leaks
     struct Node *temp;
     while (head != NULL) {
         temp = head;
@@ -181,11 +186,11 @@ int main()
 
     printf("\n");
 
-    insertNewNode(head, 30, 45, false);
+    insertNewNode(head, 20, 45, false);
 
-    head = deleteNode(head, 10, true);
+    deleteNode(head, 30, false);
 
-    findNodeValue(head, 45);
+    findNodeValue(head, 10);
 
     countNodes(head);
 
