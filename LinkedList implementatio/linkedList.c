@@ -22,16 +22,6 @@ int countNodes(struct Node *head) // Counts how many nodes in list (start from t
     return counter;
 }
 
-struct Node *createNode(int numb) // Creates a new Node
-{
-    struct Node *newNode = malloc(sizeof(struct Node));
-
-    newNode->number = numb;
-    newNode->next = NULL;
-
-    return newNode;
-}
-
 void findNodeValue(struct Node *head, int value) // Finds node velue (start from the first node)
 {
     while (head != NULL)
@@ -45,6 +35,16 @@ void findNodeValue(struct Node *head, int value) // Finds node velue (start from
     }
 
     printf("Number was not found!\n");
+}
+
+struct Node *createNode(int numb) // Creates a new Node
+{
+    struct Node *newNode = malloc(sizeof(struct Node));
+
+    newNode->number = numb;
+    newNode->next = NULL;
+
+    return newNode;
 }
 
 struct Node *insertNewNodeAtTheBeginning(struct Node *head, int value) // Inserts a new node at the beginning of list
