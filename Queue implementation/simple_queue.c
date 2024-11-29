@@ -48,7 +48,7 @@ void deQueue(Queue *q)
 {
     if (isQueueEmpty(q))
     {
-        printf("Queue is empty!");
+        printf("Queue is empty!\n");
         return;
     }
 
@@ -65,7 +65,7 @@ void printQueue(Queue *q)
 {
     if (isQueueEmpty(q))
     {
-        printf("Nothing to print, queue is empty!");
+        printf("Nothing to print, queue is empty!\n");
         return;
     }
 
@@ -92,6 +92,8 @@ int main()
     enQueue(q, 14);
 
     printQueue(q);
+
+    deQueue(q);
 
     deQueue(q);
 
