@@ -1,4 +1,4 @@
-Trees Implementation in C
+# Trees Implementation in C
 
 File binary_tree.c contains a simple implementation of a tree data structures and algorithms in C. It has such commands:
 1. createNode() - Creates a new node with allocated memory for it. It will assign the value to the number field, and sets the **left** and **right** pointers to NULL.
