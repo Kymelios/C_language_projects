@@ -5,15 +5,15 @@ File binary_tree.c contains a simple implementation of a tree data structures an
 
 ## Printing all nodes values (Tree Traversal).
 
-3. inorderPrint():
+2. inorderPrint():
    - Visit all nodes in the left subtree.
    - Visit the root node.
    - Visit all nodes in the right subtree.
-4. preorderPrint():
+3. preorderPrint():
    - Visit the root node first.
    - Visit all nodes in the left subtree.
    - Finish by visiting all nodes in the right subtree.
-5. postorderPrint():
+4. postorderPrint():
    - Visit all nodes in the left subtree.
    - Visit all nodes in the right subtree.
    - Finish by visiting the root node.
