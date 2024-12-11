@@ -7,5 +7,5 @@ In this section, I will be implementing a variety of algorithms, such as sorting
 
 ## Currently Implemented
 
-- [Bubble Sort](./bubble_sort.c)  
-- [Find the Biggest(max) value in an Array](./find_max_value.c)  
+- [[Bubble Sort](./bubble_sort.c)](https://github.com/Kymelios/C_language_projects/tree/676d1af25015a50ce0e7ccf18539c995486fc825/Algorithms/Bubble%20sort)
+- [[Find the Biggest(max) value in an Array](./find_max_value.c)](https://github.com/Kymelios/C_language_projects/tree/676d1af25015a50ce0e7ccf18539c995486fc825/Algorithms/Find%20max%20value%20algorithm)  
