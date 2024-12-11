@@ -1,5 +1,3 @@
-What's about now?
-
 # Algorithms Section
 
 Welcome to the **Algorithms Section**!  
