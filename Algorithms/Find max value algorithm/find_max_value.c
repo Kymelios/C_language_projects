@@ -17,7 +17,7 @@ int findMaxValue(int arr[], int arrSize)
 
 int main()
 {
-    int arr[6] = {3, 1, 6, 9, 1, 124}; //int is 4 bytes and you have 6 elements, so 4 * 6 = 24 bytes
+    int arr[] = {3, 1, 6, 9, 1, 124}; //int is 4 bytes and you have 6 elements, so 4 * 6 = 24 bytes
     int arrSize = sizeof(arr) / sizeof(int); // Number of elements in the array 24 / 4 = 6 
     printf("Max value: %d\n", findMaxValue(arr, arrSize));
 
