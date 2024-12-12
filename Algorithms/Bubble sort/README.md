@@ -5,7 +5,7 @@ This code implements the bubble sort algorithm. It has the following functions:
 2. **printSortedArray()** - prints the sorted array.
 
 **Example Usage**
-Given the input array `{2, 1, 7, 6, 0}`, the `bubbleSort()` function will sort the array in ascending order and `printSortedArray()` function will output our sorting result
+Given the input array `{2, 1, 7, 6, 0}`, the `bubbleSort()` function will sort the array in ascending order and `printSortedArray()` function will output our sorting result:
 ```
 Sorted array: -0--1--2--6--7-
 ```
