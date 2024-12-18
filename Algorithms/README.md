@@ -1,4 +1,4 @@
-# Algorithms Section
+# 🪢Algorithms Section
 
 Welcome to the **Algorithms Section**!  
 In this section, I will be implementing a variety of algorithms, such as sorting, searching, and more. The goal is to understand how these algorithms work, how I can modify them, and how to optimize their performance for better effectiveness.
