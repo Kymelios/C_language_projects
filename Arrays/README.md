@@ -39,7 +39,7 @@ So to fix this, you need to explicitly define the second and third dimensions: `
 ---
 ---
 ## The problems I faced with
-
+### Problem 1
 - The first problem I faced with, was when I tried to implement bubble sort. I passed an array into a function as an argument and tried to find its size inside that function like this:
 ```
 #include <stdio.h>
@@ -74,8 +74,93 @@ If you try to compile this program, you will get a warning like this:
 ```
 warning: 'sizeof' on array function parameter 'arr' will return size of 'int *' [-Wsizeof-array-argument]
 ```
-So what actually happens here is when we pass an array into a function, it is treated as a pointer to the first element of the array, not as an array itself. As a result,   `sizeof(arr)` will return the size of the pointer, not the size of the array. And that is why I couldn't do it inside a function.
+So what actually happens here is when we pass an array into a function, it is treated as a pointer to the first element of the array, not as an array itself. As a result,   `sizeof(arr)` will return the size of the pointer, not the size of the array. And that is why you can't do it inside a function.
 
+And the easiest way to fix it is to calculate arrSize directly in the main function and pass it as an argument to the function. Like in this example:
+```
+#include <stdio.h>
+
+void bubbleSort(int arr[], int arrSize)
+{
+    for (int i = 0; i < arrSize - 1; i++)
+    {
+        for (int j = 0; j < arrSize - i - 1; j++)
+        {
+            if (arr[j] > arr[j + 1])
+            {
+                int temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+            }
+        }
+    }
+}
+
+int main()
+{
+    int arr[] = {2, 1, 7, 6, 0}; // 4 * 5 = 20 bytes
+    int arrSize = sizeof(arr) / sizeof(int); // Calculating arrSize 20 / 4 = 5 
+
+    bubbleSort(arr, arrSize);
+
+    return 0;
+}
+```
+
+
+
+---
+
+### Problem 2
+**"a variable length array cannot have static storage duration C/C++"**
+```
+int* arrInit(int arrSize)
+{
+    static int arr[arrSize]; //This makes an error
+    for (int i = 0; i < arrSize; i++)
+    {
+        arr[i] = i;
+    }
+
+    return arr;
+}
+```
+- In this case, I tried to declare and initialize a static array in function during runtime. But the problem here is that **arrSize** is only known at runtime, making <ins>arr</ins> a Variable Length Array (VLA). And it doesn't allow us to use a keyword **static** together with VLAs because they cannot have static storage duration and static arrays require their size to be determined at **compile time** in order to allocate memory in static storage.
+
+To fix that problem there are several ways to do it, but I will point out two solutions that I found out to be a good examples:
+<br>
+#### 1) **The first one is to use a constant!**
+You can use a **#define preprocessor directive** constant, that is not really flexible when you want to create several arrays with different sizes, but good if array size is always known and constant at compile time.
+```
+#define ARR_SIZE 100
+
+int* arrInit()
+{
+    static int arr[ARR_SIZE];
+    for (int i = 0; i < ARR_SIZE; i++)
+    {
+        arr[i] = i;
+    }
+
+    return arr;
+}
+```
+#### 2) **The second one is to allocate memory dynamically!**
+If you want to have a dynamically allocated array with static storage duration, this approach is also valid. The memory will be allocated on the heap, and you will have to free the memory when you're done using it to avoid memory leaks, etc.
+```
+int* arrInit(int arrSize)
+{
+    static int* arr;
+    arr = malloc(arrSize * sizeof(int));
+
+    for (int i = 0; i < arrSize; i++)
+    {
+        arr[i] = i;
+    }
+
+    return arr;
+}
+```
 
 
 
