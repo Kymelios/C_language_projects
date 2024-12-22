@@ -34,3 +34,16 @@ then it is not a perfect binary tree.
 
 1. amountOfNodes() - Similar to the depth counter, here we sum up the total number of nodes by recursively adding the counts from left and right subtrees and then adding +1 for the current node to get the exact amout of nodes.
 2. isBinaryTreeComplete() -  In this function, we check if the tree fills from left-to-right order. If any node is not located in this order (for example, nodes are placed like 1, 2, 3, and you add another node at position 5 while position 4 is empty), the tree won't be complete because it doesn't follow the left-to-right filling rule.
+
+## binary_tree_ver2.c (In progress)
+This file gonna be a final file for a full functional binary tree with ability to delete, insert, find value, modify value node and etc.
+Currently implemented:
+- Core Operations:
+  - Create a new node. ✅
+  - Print a binary tree (preorder traversal). ✅
+  - Find a value in a tree. ✅
+  - Delete a node. ❌
+  - Insert a node. ❌
+- Analysis Functions:
+  - Calculate tree height. ❌
+  - Calculate amount of nodes. ❌
