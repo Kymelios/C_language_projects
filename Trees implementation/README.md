@@ -45,5 +45,5 @@ Currently implemented:
   - Delete a node. ❌
   - Insert a node. ❌
 - Analysis Functions:
-  - Calculate tree height. ❌
-  - Calculate amount of nodes. ❌
+  - Calculate tree height. ✅
+  - Calculate amount of nodes. ✅
