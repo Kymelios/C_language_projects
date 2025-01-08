@@ -1,5 +1,7 @@
 # Easy problems
 
-**2235.** Add Two Integers ✅
+**231.** Power of Two ✅
 
 **344.** Reverse String ✅
+
+**2235.** Add Two Integers ✅
