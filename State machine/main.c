@@ -1,47 +1,75 @@
 #include <stdio.h>
 
-typedef enum
+enum dataStates
 {
     INIT_PROCESS,
     DATA_CALCULATING,
     END_PROCESS
-} ProcessDataState;
+} state;
 
-void getNextStage(ProcessDataState *state)
+enum processEvents
 {
-    switch (*state)
+    START_CALCULATING,
+    CALCULATE_DATA,
+    STOP_CALCULATING
+} event;
+
+void getNextStage(enum processEvents event)
+{
+    switch (state) 
     {
-    case INIT_PROCESS:
-        printf("Process ready for use!\n");
-        *state = DATA_CALCULATING;
+        case INIT_PROCESS: //INIT_PROCESS sets by default (0), if not explicitly set
+            switch (event) {
+                case START_CALCULATING: 
+                    printf("Process ready for use!\n");
+                    state = DATA_CALCULATING;
+                    break;
+
+                default:
+                    printf("Used wrong event: (%d)!\n", event);
+                    break;
+                }
         break;
 
-    case DATA_CALCULATING:
-        for (int i = 0; i < 3; i++)
-        {
-            printf("Data calculating: %d\n", i);
-        }
-        *state = END_PROCESS;
+        case DATA_CALCULATING:
+            switch (event) {
+                case CALCULATE_DATA:
+                    for (int i = 1; i <= 3; i++)
+                    {
+                        printf("Data calculating: %d\n", i);
+                    }
+                    break;
+
+                case STOP_CALCULATING:
+                    printf("Calculation stopped!\n");
+                    state = END_PROCESS;
+                    break;
+
+                default:
+                    printf("Used wrong event: (%d)!\n", event);
+                    break;
+                }
         break;
 
-    case END_PROCESS:
-        printf("Process finished!\n");
-        *state = INIT_PROCESS;
-        break;
-    
-    default: 
+        case END_PROCESS:
+            printf("Process finished!\n");
+            state = INIT_PROCESS;
+            break;
+
+    default:
         printf("Invalid state!");
         break;
     }
 }
 
+//Some simulation of data processing, also would be cool to add some INPUT event 
+// for interaction.
+
 int main()
 {
-    ProcessDataState currentState = INIT_PROCESS;
-
-    getNextStage(&currentState);
-    getNextStage(&currentState);
-    getNextStage(&currentState);
-
+    getNextStage(START_CALCULATING);
+    getNextStage(CALCULATE_DATA);
+    getNextStage(STOP_CALCULATING);
+    getNextStage(START_CALCULATING);
     return 0;
 }
