@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <limits.h>
 #include <time.h>
 
 #define HASH_TABLE_SIZE 10
